@@ -7,7 +7,6 @@ spec:
     namespace: tailscale
     server: https://kubernetes.default.svc
   source:
-    path: ''
     repoURL: https://pkgs.tailscale.com/helmcharts
     targetRevision: 1.94.2
     chart: tailscale-operator
@@ -15,12 +14,10 @@ spec:
       values: |-
         apiServerProxyConfig:
           mode: "true"
-  sources: []
   project: default
   syncPolicy:
     automated:
       prune: true
-      selfHeal: false
       enabled: true
     syncOptions:
       - CreateNamespace=true
