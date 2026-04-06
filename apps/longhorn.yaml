@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: longhorn
+spec:
+  destination:
+    namespace: longhorn
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: https://charts.longhorn.io
+    targetRevision: '*'
+    chart: longhorn
+    helm:
+      valueFiles:
+        - values.yaml
+      values: |-
+        defaultSettings:
+          defaultDataPath: /longhorn
+        longhornManager:
+          serviceAnnotations:
+            tailscale.com/expose: "true"
+            tailscale.com/hostname: "longhorn"
+  project: default
+  syncPolicy:
+    automated:
+      enabled: true
+    syncOptions:
+      - CreateNamespace=true
