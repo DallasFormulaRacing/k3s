@@ -27,6 +27,7 @@ spec:
         persistence:
           enabled: true
           size: 4Gi
+          storageClassName: longhorn
   project: default
   syncPolicy:
     automated:
