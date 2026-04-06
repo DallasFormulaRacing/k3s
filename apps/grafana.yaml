@@ -24,6 +24,9 @@ spec:
             tailscale.com/hostname: "grafana"
         plugins:
           - hamedkarbasi93-kafka-datasource
+        persistence:
+          enabled: true
+          size: 4Gi
   project: default
   syncPolicy:
     automated:
