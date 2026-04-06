@@ -12,6 +12,9 @@ spec:
     chart: grafana
     helm:
       values: |-
+        admin:
+          existingSecret: grafana-admin
+          passwordKey: admin-password
         grafana.ini:
           server:
             root_url: https://grafana.tail2e3bd2.ts.net/
