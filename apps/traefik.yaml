@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: traefik
+spec:
+  destination:
+    namespace: traefik
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: https://traefik.github.io/charts
+    targetRevision: '*'
+    chart: traefik
+    helm:
+      values: |-
+        service:
+          annotations:
+            tailscale.com/expose: "true"
+            tailscale.com/hostname: "traefik"
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      enabled: true
+    syncOptions:
+      - CreateNamespace=true
