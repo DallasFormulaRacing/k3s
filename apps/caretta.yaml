@@ -7,15 +7,14 @@ spec:
     namespace: caretta
     server: https://kubernetes.default.svc
   source:
-    repoURL: https://helm.groundcover.com/
+    repoURL: https://groundcover-com.github.io/caretta/
     targetRevision: "*"
-    chart: groundcover
-    #helm:
-    #  values: |-
-    #    persistence:
-    #      enabled: true
-    #      size: 4Gi
-    #      storageClassName: longhorn
+    chart: caretta
+    helm:
+      values: |-
+        annotations:
+          tailscale.com/expose: "true"
+          tailscale.com/hostname: "caretta"
   project: default
   syncPolicy:
     automated:
