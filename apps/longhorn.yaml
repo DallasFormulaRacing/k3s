@@ -14,6 +14,8 @@ spec:
       valueFiles:
         - values.yaml
       values: |-
+        preUpgradeChecker:
+          jobEnabled: false
         defaultSettings:
           defaultDataPath: /longhorn
         longhornManager:
