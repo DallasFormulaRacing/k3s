@@ -16,6 +16,7 @@ spec:
           jobEnabled: false
         defaultSettings:
           defaultDataPath: /longhorn
+          defaultReplicaCount: "2"
         service:
           ui:
             annotations:
