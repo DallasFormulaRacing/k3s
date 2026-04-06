@@ -16,10 +16,11 @@ spec:
           jobEnabled: false
         defaultSettings:
           defaultDataPath: /longhorn
-        longhornUI:
-          serviceAnnotations:
-            tailscale.com/expose: "true"
-            tailscale.com/hostname: "longhorn"
+        service:
+          ui:
+            annotations:
+              tailscale.com/expose: "true"
+              tailscale.com/hostname: "longhorn"
   project: default
   syncPolicy:
     automated:
