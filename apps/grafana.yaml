@@ -7,12 +7,10 @@ spec:
     namespace: grafana
     server: https://kubernetes.default.svc
   source:
-    path: ''
     repoURL: https://grafana.github.io/helm-charts
-    targetRevision: 10.5.15
+    targetRevision: "*"
     chart: grafana
     helm:
-      valueFiles: []
       values: |-
         grafana.ini:
           server:
@@ -23,7 +21,6 @@ spec:
             tailscale.com/hostname: "grafana"
         plugins:
           - hamedkarbasi93-kafka-datasource
-  sources: []
   project: default
   syncPolicy:
     automated:
