@@ -16,7 +16,7 @@ spec:
           jobEnabled: false
         defaultSettings:
           defaultDataPath: /longhorn
-        longhornManager:
+        longhornUI:
           serviceAnnotations:
             tailscale.com/expose: "true"
             tailscale.com/hostname: "longhorn"
