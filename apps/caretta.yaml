@@ -7,7 +7,7 @@ spec:
     namespace: caretta
     server: https://kubernetes.default.svc
   source:
-    repoURL: https://groundcover-com.github.io/caretta/
+    repoURL: https://helm.groundcover.com/
     targetRevision: "*"
     chart: caretta
     helm:
