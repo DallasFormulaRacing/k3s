@@ -13,6 +13,12 @@ spec:
     helm:
       values: |-
         replicaCount: 2
+  ignoreDifferences:
+    - kind: Secret
+      name: cloudflare-cloudflare-tunnel-remote
+      jsonPointers:
+        - /data/tunnelToken
+        - /stringData
   project: default
   syncPolicy:
     automated:
@@ -20,3 +26,4 @@ spec:
       enabled: true
     syncOptions:
       - CreateNamespace=true
+      - RespectIgnoreDifferences=true
