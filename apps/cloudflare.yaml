@@ -12,7 +12,6 @@ spec:
     targetRevision: '*'
     helm:
       values: |-
-        existingSecret: cloudflare-tunnel
         replicaCount: 2
   project: default
   syncPolicy:
