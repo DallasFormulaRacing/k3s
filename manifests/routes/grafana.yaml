@@ -5,7 +5,7 @@ metadata:
   namespace: grafana
 spec:
   entryPoints:
-    - websecure
+    - web
   routes:
     - match: Host(`grafana.dallasformularacing.com`)
       kind: Rule
