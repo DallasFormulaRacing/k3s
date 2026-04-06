@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cloudflare
+spec:
+  destination:
+    namespace: cloudflare
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: https://cloudflare.github.io/helm-charts
+    chart: cloudflare-tunnel-remote
+    targetRevision: '*'
+    helm:
+      values: |-
+        existingSecret: cloudflare-tunnel
+        replicaCount: 2
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      enabled: true
+    syncOptions:
+      - CreateNamespace=true
