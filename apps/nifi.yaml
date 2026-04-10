@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nifi
+spec:
+  destination:
+    namespace: nifi
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: https://cetic.github.io/helm-charts
+    # targetRevision: main.    //Not sure what to put for this currently
+    chart: nifi
+    helm:
+      values: |-
+        service:
+          annotations:
+            tailscale.com/expose: "true"
+            tailscale.com/hostname: "nifi"
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      enabled: true
+    syncOptions:
+      - CreateNamespace=true
