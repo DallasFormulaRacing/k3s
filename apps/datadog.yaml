@@ -1,0 +1,47 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: datadog
+spec:
+  destination:
+    namespace: datadog
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: https://helm.datadoghq.com
+    chart: datadog
+    targetRevision: 3.201.1
+    helm:
+      values: |-
+        datadog:
+          site: "us5.datadoghq.com"
+          clusterName: "k3s"
+          apiKeyExistingSecret: "datadog-secret"
+
+          clusterChecks:
+            enabled: true
+
+          orchestratorExplorer:
+            enabled: true
+
+          apm:
+            instrumentation:
+              enabled: true
+              targets:
+                - name: "default-target"
+                  ddTraceVersions:
+                    python: "4"
+                    js: "5"
+
+          logs:
+            enabled: true
+            containerCollectAll: true
+
+          processAgent:
+            processCollection: true
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      enabled: true
+    syncOptions:
+      - CreateNamespace=true
