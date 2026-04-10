@@ -12,6 +12,9 @@ spec:
     chart: nifi
     helm:
       values: |-
+        podLabels:
+          admission.datadoghq.com/enabled: "false"
+
         service:
           annotations:
             tailscale.com/expose: "true"
