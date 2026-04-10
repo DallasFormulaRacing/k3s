@@ -8,7 +8,7 @@ spec:
     server: https://kubernetes.default.svc
   source:
     repoURL: https://cetic.github.io/helm-charts
-    # targetRevision: main.    //Not sure what to put for this currently
+    targetRevision: 1.2.1
     chart: nifi
     helm:
       values: |-
