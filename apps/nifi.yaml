@@ -7,8 +7,8 @@ spec:
     namespace: nifi
     server: https://kubernetes.default.svc
   source:
-    repoURL: https://cetic.github.io/helm-charts
-    targetRevision: 1.2.1
+    repoURL: https://sakkiii.github.io/apache-nifi-helm
+    targetRevision: '*'
     chart: nifi
     helm:
       values: |-
