@@ -28,7 +28,7 @@ spec:
             - name: SINGLE_USER_CREDENTIALS_USERNAME
               value: "admin"
             - name: SINGLE_USER_CREDENTIALS_PASSWORD
-              value: "kachow"
+              value: "kachowkachow"
           ports:
             - name: https
               containerPort: 8443
