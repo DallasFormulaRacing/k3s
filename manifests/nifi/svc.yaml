@@ -15,10 +15,10 @@ spec:
 # UI access
 apiVersion: v1
 kind: Service
-annotations:
-    tailscale.com/expose: "true"
-    tailscale.com/hostname: "nifi"
 metadata:
+  annotations:
+      tailscale.com/expose: "true"
+      tailscale.com/hostname: "nifi"
   name: nifi-ui
   namespace: nifi
 spec:
