@@ -27,7 +27,7 @@ spec:
             - name: SINGLE_USER_CREDENTIALS_USERNAME
               value: "admin"
             - name: SINGLE_USER_CREDENTIALS_PASSWORD
-              value: "NifiAdminPass123"
+              value: "kachow"
           ports:
             - name: https
               containerPort: 8443
