@@ -2,23 +2,15 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: nifi
+  namespace: argocd
 spec:
   destination:
-    namespace: nifi
     server: https://kubernetes.default.svc
+    namespace: nifi
   source:
-    repoURL: https://sakkiii.github.io/apache-nifi-helm
-    targetRevision: '*'
-    chart: nifi
-    helm:
-      values: |-
-        podLabels:
-          admission.datadoghq.com/enabled: "false"
-
-        service:
-          annotations:
-            tailscale.com/expose: "true"
-            tailscale.com/hostname: "nifi"
+    repoURL: https://github.com/DallasFormulaRacing/k3s.git
+    targetRevision: main
+    path: manifests/nifi
   project: default
   syncPolicy:
     automated:
