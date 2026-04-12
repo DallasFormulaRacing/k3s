@@ -22,6 +22,8 @@ spec:
               value: "0.0.0.0"
             - name: NIFI_WEB_HTTPS_PORT
               value: "8443"
+            - name: NIFI_WEB_PROXY_HOST
+              value: "nifi.tail2e3bd2.ts.net:8443"
             - name: SINGLE_USER_CREDENTIALS_USERNAME
               value: "admin"
             - name: SINGLE_USER_CREDENTIALS_PASSWORD
