@@ -6,6 +6,7 @@ metadata:
 spec:
   serviceName: nifi-headless
   replicas: 1
+  revisionHistoryLimit: 1
   selector:
     matchLabels:
       app: nifi
