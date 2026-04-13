@@ -6,8 +6,8 @@ spec:
   destination:
     namespace: longhorn
     server: https://kubernetes.default.svc
-  source:
-    repoURL: https://charts.longhorn.io
+  sources:
+  - repoURL: https://charts.longhorn.io
     targetRevision: '*'
     chart: longhorn
     helm:
@@ -25,6 +25,9 @@ spec:
             annotations:
               tailscale.com/expose: "true"
               tailscale.com/hostname: "longhorn"
+  - repoURL: https://github.com/DallasFormulaRacing/k3s
+    path: manifests/longhorn
+    targetRevision: main
   project: default
   syncPolicy:
     automated:
