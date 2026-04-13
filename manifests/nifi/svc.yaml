@@ -26,6 +26,6 @@ spec:
   selector:
     app: nifi
   ports:
-    - port: 8443
+    - port: 443
       targetPort: 8443
       name: https
