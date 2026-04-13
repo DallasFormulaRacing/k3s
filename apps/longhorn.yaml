@@ -17,6 +17,9 @@ spec:
         defaultSettings:
           defaultDataPath: /longhorn
           defaultReplicaCount: "1"
+        defaultBackupStore:
+          backupTarget: "s3://db-backups-s3-us-east-2-754437490409-us-east-2-an@us-east-2/longhorn-backup/"
+          backupTargetCredentialSecret: "longhorn-backup-s3"
         service:
           ui:
             annotations:
