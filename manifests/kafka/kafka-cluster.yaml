@@ -33,6 +33,10 @@ spec:
         port: 9092
         type: internal
         tls: false
+        configuration:
+          brokers:
+            - broker: 0
+              advertisedHost: kafka.tail2e3bd2.ts.net
     template:
       bootstrapService:
         metadata:
