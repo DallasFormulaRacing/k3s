@@ -33,12 +33,17 @@ spec:
         port: 9092
         type: internal
         tls: false
+      - name: external
+        port: 9094
+        type: cluster-ip
+        tls: false
         configuration:
           brokers:
             - broker: 0
               advertisedHost: kafka.tail2e3bd2.ts.net
+              advertisedPort: 9094
     template:
-      bootstrapService:
+      externalBootstrapService:
         metadata:
           annotations:
             tailscale.com/expose: "true"
