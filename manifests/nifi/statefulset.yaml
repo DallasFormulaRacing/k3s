@@ -17,18 +17,24 @@ spec:
     spec:
       containers:
         - name: nifi
-          image: apache/nifi:1.28.1
+          image: apache/nifi:latest
           env:
             - name: NIFI_WEB_HTTPS_HOST
               value: "0.0.0.0"
             - name: NIFI_WEB_HTTPS_PORT
               value: "8443"
             - name: NIFI_WEB_PROXY_HOST
-              value: "nifi.tail2e3bd2.ts.net:8443,100.124.153.60"
+              value: "nifi.tail2e3bd2.ts.net"
             - name: SINGLE_USER_CREDENTIALS_USERNAME
-              value: "admin"
+              valueFrom:
+                secretKeyRef:
+                  name: nifi-admin
+                  key: username
             - name: SINGLE_USER_CREDENTIALS_PASSWORD
-              value: "***REMOVED***"
+              valueFrom:
+                secretKeyRef:
+                  name: nifi-admin
+                  key: password
           ports:
             - name: https
               containerPort: 8443
