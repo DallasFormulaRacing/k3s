@@ -24,6 +24,16 @@ spec:
             tailscale.com/hostname: "grafana"
         plugins:
           - hamedkarbasi93-kafka-datasource
+        datasources:
+          datasources.yaml:
+            apiVersion: 1
+            datasources:
+              - name: kafka
+                type: hamedkarbasi93-kafka-datasource
+                access: proxy
+                isDefault: true
+                jsonData:
+                  bootstrapServers: "100.88.144.100:9094"
         persistence:
           enabled: true
           size: 4Gi
