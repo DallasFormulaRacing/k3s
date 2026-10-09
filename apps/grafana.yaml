@@ -33,7 +33,7 @@ spec:
                 access: proxy
                 isDefault: true
                 jsonData:
-                  bootstrapServers: "100.88.144.100:9094"
+                  bootstrapServers: "dfr-kafka-kafka-bootstrap.kafka.svc:9092"
         persistence:
           enabled: true
           size: 4Gi
