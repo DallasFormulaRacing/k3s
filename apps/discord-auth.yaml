@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   source:
     repoURL: https://github.com/DallasFormulaRacing/k3s.git
-    path: manifests/auth
+    path: manifests/discord-auth
     targetRevision: main
   project: default
   syncPolicy:
