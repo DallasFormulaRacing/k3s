@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: discord-auth
+  namespace: argocd
+spec:
+  destination:
+    namespace: auth
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: https://github.com/DallasFormulaRacing/k3s.git
+    path: manifests/auth
+    targetRevision: main
+  project: default
+  syncPolicy:
+    automated:
+      enabled: true
+    syncOptions:
+      - CreateNamespace=true
